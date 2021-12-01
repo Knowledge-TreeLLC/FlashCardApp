@@ -30,7 +30,7 @@ app.post('/cards',
 });
 
 //delete flashcards from the database
-app.delete('/cards',
+app.delete('/cards/:id',
   controller.deleteCards,
   (req, res,) => {
     return res.sendStatus(200);
