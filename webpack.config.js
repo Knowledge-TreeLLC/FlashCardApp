@@ -2,7 +2,7 @@ const path = require('path');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
-  mode: "development",
+  mode,
   entry: "./src/index.js",
 
   output: {
@@ -14,15 +14,16 @@ module.exports = {
     rules: [
       {
         loader: "babel-loader",
-        test: /\.jsx$/,
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
       },
       {
         test: /\.(sass|css|scss)$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ["style-loader", "css- loader", "postcss-loader"],
       },
     ],
   },
+  
   devServer: {
     static: path.join(__dirname, "public"),
     compress: true,
