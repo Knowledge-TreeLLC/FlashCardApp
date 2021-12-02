@@ -4,6 +4,7 @@ const db = require(path.resolve(__dirname, "../models/Model.js"));
 const flashController = {};
 
 flashController.getCards = (req, res, next) => {
+  console.log('getting cards');
   const query = "SELECT * FROM Cards";
 
   db.query(query)
@@ -17,8 +18,10 @@ flashController.getCards = (req, res, next) => {
 };
 
 flashController.postCards = (req, res, next) => {
-  const query = 'INSERT INTO Cards (id, front, back) VALUES ($1, $2, $3);'
-  const params = [req.body.id, req.body.front, req.body.back]
+  console.log('attempting to post cards');
+
+  const query = 'INSERT INTO Cards (front, back, category) VALUES ($1, $2, $3);'
+  const params = [req.body.front, req.body.back, req.body.description];
 
   db.query(query, params)
     .then(data => {
