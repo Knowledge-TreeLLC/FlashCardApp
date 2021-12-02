@@ -38,7 +38,7 @@ app.delete('/cards/:id',
 
 // local error handler
 app.use((err, req, res, next) => {
-  return res.sendStatus(404).send('This is not the page you\'re looking for');
+  return res.status(404).send('This is not the page you\'re looking for');
 })
 
 // global error handler

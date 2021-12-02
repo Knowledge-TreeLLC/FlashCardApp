@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import {v4 as uuidv4} from 'uuid';
 
 
 const Login = () => {
 
+
   const submitLogin = () => {
     
   }
 
-  const redirect = () => {
-
+  const redirectSignUp = () => {
+    history.push('/signup');
   }
 
   return (
@@ -25,8 +26,8 @@ const Login = () => {
          <label htmlFor="password"> Password:
           <input type="text" id = "password"/>
         </label>
-        <button type="submit">Login</button>
-        <button type="submit">Signup</button>
+        <button type="submit" >Login</button>
+        <button type="submit" onClick={redirectSignUp}> Signup</button>
       </form>
     </div>
   )

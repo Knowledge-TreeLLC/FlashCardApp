@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const Input = () => {
-  
+
   const [frontText, setFrontText] = useState('');
   const [backText, setBackText] = useState('');
   const [category, setCategory] = useState('');
 
   const onSubmit = () => {
-    fetch('http:localhost:3000/cards', {
+    // console.log(frontText);
+    // console.log(backText);
+    // console.log(category);
+
+    fetch('http://localhost:3000/cards', {
       method: 'POST',
       headers: { 'Content-Type' : 'application/json'},
       body: JSON.stringify({
@@ -17,30 +21,30 @@ const Input = () => {
         'description': category
       })
     })
-      .then(() => {
-        setFrontText('');
-        setBackText('');
-        setCategory('');
-      })
+    .then(() => {
+      setFrontText('');
+      setBackText('');
+      setCategory('');
+    })
   }
 
-  return(
+  return (
     <div>
-      <h4>
-        input?
-      </h4>
       <form>
         <label htmlFor="front">Front:
-          <input type="text" id="front" />
-        </label>
+          <input type="text" id="front" value={frontText} onChange={el => setFrontText(el.target.value)}/>
+        </label>   
+        <br />
         <label htmlFor="back">Back:
-          <input type="text" id="back" />
+          <input type="text" id="back" value={backText} onChange={el => setBackText(el.target.value)}/>
         </label>
+        <br />
         <label htmlFor="category">Category:
-          <input type="text" id="category" />
+          <input type="text" id="category" value={category} onChange={el => setCategory(el.target.value)}/>
         </label>
-        <button type="submit" onClick={onSubmit}>Add</button>
+        <br />
       </form>
+      <button type="submit" onClick={onSubmit}>Add</button>
     </div>
   )
 }

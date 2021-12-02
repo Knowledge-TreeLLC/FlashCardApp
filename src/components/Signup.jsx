@@ -8,23 +8,19 @@ const Signup = () => {
       <h2>
         Signup
       </h2>
-      {/* <form>
-        <label for="username"> Username:
-          <input type="text"
-            placeholder="Enter your username"
-          />
+      <form>
+        <label htmlFor="signup-username"> Username:
+          <input type="text" id="signup-username"/>
         </label>
-        <label for="password"> Password:
-          <input type="text"
-            placeholder="Enter your password"
-          />
+        <label htmlFor="signup-password"> Password: 
+          <input type="text" id="signup-password"/>
         </label>
-        <input type="button">Signup</input>
-        <button>
-          <Link to="/home">Home
+        <button type="submit" >Signup</button>
+        {/* <button>
+          <Link to="/home">Home 
           </Link>
-        </button>
-      </form> */}
+        </button> */}
+      </form>
     </div>
   )
 }
